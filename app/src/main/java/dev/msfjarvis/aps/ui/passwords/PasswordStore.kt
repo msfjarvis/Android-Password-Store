@@ -4,8 +4,6 @@
  */
 package dev.msfjarvis.aps.ui.passwords
 
-import android.Manifest
-import android.annotation.SuppressLint
 import android.content.ComponentName
 import android.content.Context
 import android.content.Intent
@@ -14,7 +12,6 @@ import android.view.KeyEvent
 import android.view.Menu
 import android.view.MenuItem
 import android.view.MenuItem.OnActionExpandListener
-import androidx.activity.result.contract.ActivityResultContracts.RequestPermission
 import androidx.activity.result.contract.ActivityResultContracts.StartActivityForResult
 import androidx.activity.viewModels
 import androidx.appcompat.widget.SearchView
@@ -39,7 +36,6 @@ import dev.msfjarvis.aps.data.repo.PasswordRepository
 import dev.msfjarvis.aps.ui.crypto.BasePgpActivity.Companion.getLongName
 import dev.msfjarvis.aps.ui.crypto.DecryptActivity
 import dev.msfjarvis.aps.ui.crypto.PasswordCreationActivity
-import dev.msfjarvis.aps.ui.dialogs.BasicBottomSheet
 import dev.msfjarvis.aps.ui.dialogs.FolderCreationDialogFragment
 import dev.msfjarvis.aps.ui.folderselect.SelectFolderActivity
 import dev.msfjarvis.aps.ui.git.base.BaseGitActivity
@@ -52,7 +48,6 @@ import dev.msfjarvis.aps.util.extensions.commitChange
 import dev.msfjarvis.aps.util.extensions.contains
 import dev.msfjarvis.aps.util.extensions.getString
 import dev.msfjarvis.aps.util.extensions.isInsideRepository
-import dev.msfjarvis.aps.util.extensions.isPermissionGranted
 import dev.msfjarvis.aps.util.extensions.listFilesRecursively
 import dev.msfjarvis.aps.util.extensions.requestInputFocusOnView
 import dev.msfjarvis.aps.util.extensions.sharedPrefs
@@ -79,11 +74,6 @@ class PasswordStore : BaseGitActivity() {
   private val model: SearchableRepositoryViewModel by viewModels {
     ViewModelProvider.AndroidViewModelFactory(application)
   }
-
-  private val storagePermissionRequest =
-    registerForActivityResult(RequestPermission()) { granted ->
-      if (granted) checkLocalRepository()
-    }
 
   private val directorySelectAction =
     registerForActivityResult(StartActivityForResult()) { result ->
@@ -198,18 +188,8 @@ class PasswordStore : BaseGitActivity() {
     return super.onKeyDown(keyCode, event)
   }
 
-  @SuppressLint("NewApi")
   override fun onCreate(savedInstanceState: Bundle?) {
-    // If user opens app with permission granted then revokes and returns,
-    // prevent attempt to create password list fragment
-    var savedInstance = savedInstanceState
-    if (savedInstanceState != null &&
-        (!settings.getBoolean(PreferenceKeys.GIT_EXTERNAL, false) ||
-          !isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE))
-    ) {
-      savedInstance = null
-    }
-    super.onCreate(savedInstance)
+    super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_pwdstore)
 
     model.currentDir.observe(this) { dir ->
@@ -227,11 +207,7 @@ class PasswordStore : BaseGitActivity() {
 
   override fun onResume() {
     super.onResume()
-    if (settings.getBoolean(PreferenceKeys.GIT_EXTERNAL, false)) {
-      hasRequiredStoragePermissions()
-    } else {
-      checkLocalRepository()
-    }
+    checkLocalRepository()
     if (settings.getBoolean(PreferenceKeys.SEARCH_ON_START, false) && ::searchItem.isInitialized) {
       if (!searchItem.isActionViewExpanded) {
         searchItem.expandActionView()
@@ -355,26 +331,6 @@ class PasswordStore : BaseGitActivity() {
           failure = { promptOnErrorHandler(it) },
         )
     }
-
-  /**
-   * Validates if storage permission is granted, and requests for it if not. The return value is
-   * true if the permission has been granted.
-   */
-  private fun hasRequiredStoragePermissions(): Boolean {
-    return if (!isPermissionGranted(Manifest.permission.WRITE_EXTERNAL_STORAGE)) {
-      BasicBottomSheet.Builder(this)
-        .setMessageRes(R.string.access_sdcard_text)
-        .setPositiveButtonClickListener(getString(R.string.snackbar_action_grant)) {
-          storagePermissionRequest.launch(Manifest.permission.WRITE_EXTERNAL_STORAGE)
-        }
-        .build()
-        .show(supportFragmentManager, "STORAGE_PERMISSION_MISSING")
-      false
-    } else {
-      checkLocalRepository()
-      true
-    }
-  }
 
   private fun checkLocalRepository() {
     val repo = PasswordRepository.initialize()
