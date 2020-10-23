@@ -4,29 +4,31 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [1.13.1] - 2020-10-23
+
 ### Added
 
--  Add support for domain-level autofill in DuckDuckGo's F-Droid builds.
+-   Add support for domain-level autofill in DuckDuckGo's F-Droid builds.
 
 ### Changed
 
--  The newly added automatic synchronisation feature has been rolled back due to multiple issues with its implementation.
+-   The newly added automatic synchronisation feature has been rolled back due to multiple issues with its implementation.
 
 ## [1.13.0] - 2020-10-22
 
 ### Fixed
 
--  Some classes of errors would be swallowed by an unhelpful 'Invalid remote: origin' message
--  Repositories created within APS would contain invalid `.gpg-id` files with no ability to fix them from the app
--  Button labels were invisible in Autofill phishing warning screen
--  Unsupported authentication modes would appear briefly in the server config screen
+-   Some classes of errors would be swallowed by an unhelpful 'Invalid remote: origin' message
+-   Repositories created within APS would contain invalid `.gpg-id` files with no ability to fix them from the app
+-   Button labels were invisible in Autofill phishing warning screen
+-   Unsupported authentication modes would appear briefly in the server config screen
 
 ### Added
 
--  Add GPG key selection step to onboarding flow
--  Allow configuring an app-wide HTTP(S) proxy
--  Add option to automatically sync repository on app launch
--  Add a quickfix for invalid HTTPS URLs that contain a custom port
+-   Add GPG key selection step to onboarding flow
+-   Allow configuring an app-wide HTTP(S) proxy
+-   Add option to automatically sync repository on app launch
+-   Add a quickfix for invalid HTTPS URLs that contain a custom port
 
 ## [1.12.1] - 2020-10-13
 
@@ -378,7 +380,9 @@ All notable changes to this project will be documented in this file.
 
 -   Fix elements overlapping.
 
-[Unreleased]: https://github.com/android-password-store/Android-Password-Store/compare/v1.13.0...HEAD
+[Unreleased]: https://github.com/msfjarvis/Android-Password-Store/compare/1.13.1...HEAD
+
+[1.13.1]: https://github.com/msfjarvis/Android-Password-Store/compare/1.13.0...1.13.1
 
 [1.13.0]: https://github.com/android-password-store/Android-Password-Store/compare/v1.12.1...v1.13.0
 
