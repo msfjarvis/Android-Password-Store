@@ -60,7 +60,7 @@ object Dependencies {
         const val ssh_auth = "org.sufficientlysecure:sshauthentication-api:1.0"
         const val timber = "com.jakewharton.timber:timber:4.7.1"
         const val timberkt = "com.github.ajalt:timberkt:1.5.1"
-        const val whatthestack = "com.github.haroldadmin:WhatTheStack:0.0.5"
+        const val whatthestack = "com.github.haroldadmin:WhatTheStack:0.0.2"
     }
 
     object NonFree {
