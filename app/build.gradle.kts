@@ -14,7 +14,7 @@ plugins {
 val keystorePropertiesFile = rootProject.file("keystore.properties")
 
 fun isSnapshot(): Boolean {
-    return System.getenv("GITHUB_WORKFLOW") != null && System.getenv("SNAPSHOT") != null
+    return true //System.getenv("GITHUB_WORKFLOW") != null && System.getenv("SNAPSHOT") != null
 }
 
 android {
