@@ -125,13 +125,7 @@ dependencies {
     implementation(Dependencies.ThirdParty.timber)
     implementation(Dependencies.ThirdParty.timberkt)
 
-    if (isSnapshot()) {
-        implementation(Dependencies.ThirdParty.leakcanary)
-        implementation(Dependencies.ThirdParty.whatthestack)
-    } else {
-        debugImplementation(Dependencies.ThirdParty.leakcanary)
-        debugImplementation(Dependencies.ThirdParty.whatthestack)
-    }
+    implementation(Dependencies.ThirdParty.whatthestack)
 
     "nonFreeImplementation"(Dependencies.NonFree.google_play_auth_api_phone)
 
