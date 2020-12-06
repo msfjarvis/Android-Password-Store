@@ -49,7 +49,7 @@
     <string name="pref_dialog_delete_title">清空 Repo</string>
     <string name="pref_category_general_title">通用</string>
     <string name="pref_copy_title">自动复制密码</string>
-    <string name="pref_copy_dialog_title">解密成功后自动将密码复制到剪贴板</string>
+    <string name="pref_copy_summary">解密成功后自动将密码复制到剪贴板</string>
     <string name="ssh_key_success_dialog_title">成功导入SSH密钥</string>
     <string name="ssh_key_error_dialog_text">信息:</string>
     <string name="pref_recursive_filter">搜索子文件夹</string>
@@ -60,7 +60,7 @@
     <string name="pref_autofill_default_hint">无自定义设置的应用将默认采用 \'自动匹配\' . 否则将采用\'从不匹配\'</string>
     <string name="pref_autofill_always_title">总是显示对话框</string>
     <string name="pref_clear_clipboard_title">清空剪贴版20次</string>
-    <string name="pref_clear_clipboard_hint">将剪贴版复写20次. 这在有储存剪贴版历史功能的三星手机上很有用.</string>
+    <string name="pref_clear_clipboard_summary">将剪贴版复写20次. 这在有储存剪贴版历史功能的三星手机上很有用.</string>
     <string name="pref_git_delete_repo_summary">删除本地的 (隐藏) Repo</string>
     <string name="pref_external_repository">外部 Repo</string>
     <string name="pref_external_repository_summary">使用一个外部的密码Repo</string>

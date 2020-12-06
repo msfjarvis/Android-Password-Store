@@ -73,7 +73,7 @@
     <string name="pref_dialog_delete_title">Vyčistit repozitář</string>
     <string name="pref_category_general_title">Všeobecné</string>
     <string name="pref_copy_title">Automaticky kopírovat heslo</string>
-    <string name="pref_copy_dialog_title">Automatické kopírování hesla do schránky po úspěšném dešifrování.</string>
+    <string name="pref_copy_summary">Automatické kopírování hesla do schránky po úspěšném dešifrování.</string>
     <string name="ssh_key_success_dialog_title">SSH-key importován</string>
     <string name="ssh_key_error_dialog_text">Zpráva : \n</string>
     <string name="pref_recursive_filter">Rekurzivní filtrování</string>
@@ -85,7 +85,7 @@
     <string name="pref_autofill_always_title">Vždy zobrazit dialog</string>
     <string name="pref_autofill_full_path_title">Ukaž plnou cestu</string>
     <string name="pref_clear_clipboard_title">Zaplnit schránku 20krát</string>
-    <string name="pref_clear_clipboard_hint">Uložit dvacet náhodných textů do schránky namísto pouze jednoho. Užitečné pro telefony Samsung, které nabízejí funkci historie schránky.</string>
+    <string name="pref_clear_clipboard_summary">Uložit dvacet náhodných textů do schránky namísto pouze jednoho. Užitečné pro telefony Samsung, které nabízejí funkci historie schránky.</string>
     <string name="pref_git_delete_repo_summary">Smaže místní (skrytý) repozitář</string>
     <string name="pref_external_repository">Externí repozitář</string>
     <string name="pref_external_repository_summary">Použít externí repozitář hesel</string>
