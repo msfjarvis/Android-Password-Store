@@ -127,7 +127,7 @@ class PasswordExportService : Service() {
         val notification = NotificationCompat.Builder(this, CHANNEL_ID)
             .setContentTitle(getString(R.string.app_name))
             .setContentText(getString(R.string.exporting_passwords))
-            .setSmallIcon(R.drawable.ic_round_import_export)
+            .setSmallIcon(R.drawable.round_import_export)
             .setPriority(NotificationCompat.PRIORITY_LOW)
             .build()
 

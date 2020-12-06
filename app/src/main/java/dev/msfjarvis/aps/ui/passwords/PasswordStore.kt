@@ -467,7 +467,7 @@ class PasswordStore : BaseGitActivity() {
             val shortcut = Builder(this, item.fullPathToParent)
                 .setShortLabel(item.toString())
                 .setLongLabel(item.fullPathToParent + item.toString())
-                .setIcon(Icon.createWithResource(this, R.drawable.ic_lock_open_24px))
+                .setIcon(Icon.createWithResource(this, R.drawable.lock_open_24px))
                 .setIntent(authDecryptIntent)
                 .build()
             val shortcuts = shortcutManager.dynamicShortcuts

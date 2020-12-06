@@ -45,7 +45,7 @@
         android:layout_height="40dp"
         android:layout_marginStart="@dimen/activity_horizontal_margin"
         android:contentDescription="@string/oreo_autofill_warning_publisher_warning_sign_description"
-        android:src="@drawable/ic_warning_red_24dp"
+        android:src="@drawable/warning_red_24dp"
         app:layout_constraintTop_toTopOf="@id/warningHeader"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="@id/warningHeader" />

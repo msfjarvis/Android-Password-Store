@@ -37,7 +37,7 @@ class MainSettingsScreen : AppCompatActivity() {
             }
             subScreen {
                 titleRes = R.string.pref_category_passwords_title
-                iconRes = R.drawable.ic_lock_open_24px
+                iconRes = R.drawable.lock_open_24px
                 passwordSettings.provideSettings(this)
             }
             subScreen {
