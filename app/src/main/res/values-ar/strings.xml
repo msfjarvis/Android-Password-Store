@@ -44,7 +44,7 @@
     <string name="share_as_plaintext">شارك كنص مجرد</string>
     <string name="last_changed">آخِر تعديل %s</string>
     <!-- Preferences -->
-    <string name="pref_ssh_title">إستيراد مفتاح الـ SSH</string>
+    <string name="pref_import_ssh_key_title">إستيراد مفتاح الـ SSH</string>
     <string name="pref_ssh_keygen_title">توليد مفتاحَي الـ SSH</string>
     <string name="pref_ssh_see_key_title">إظهار مفتاح الـ SSH العمومي الذي تم توليده</string>
     <string name="pref_git_delete_repo">حذف المستودع</string>

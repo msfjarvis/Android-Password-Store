@@ -62,7 +62,7 @@
     <string name="share_as_plaintext">Compartir como texto plano</string>
     <string name="last_changed">Última modificación %s</string>
     <!-- Preferences -->
-    <string name="pref_ssh_title">Importar llave SSH</string>
+    <string name="pref_import_ssh_key_title">Importar llave SSH</string>
     <string name="pref_ssh_keygen_title">Generar par de llaves SSH</string>
     <string name="pref_ssh_see_key_title">Ver llave pública SSH generada</string>
     <string name="pref_git_delete_repo">Eliminar repositorio</string>

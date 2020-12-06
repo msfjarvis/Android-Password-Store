@@ -66,7 +66,7 @@
     <string name="share_as_plaintext">Sdílet v nešifrované podobě</string>
     <string name="last_changed">Naposled změněno %s</string>
     <!-- Preferences -->
-    <string name="pref_ssh_title">Importovat SSH klíč</string>
+    <string name="pref_import_ssh_key_title">Importovat SSH klíč</string>
     <string name="pref_ssh_keygen_title">Generovat SSH klíč</string>
     <string name="pref_ssh_see_key_title">Zobrazit vygenerovaný veřejný SSH klíč</string>
     <string name="pref_git_delete_repo">Smazat repozitář</string>

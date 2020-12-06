@@ -40,7 +40,7 @@
     <!-- DECRYPT Layout -->
     <string name="action_search">搜尋</string>
     <!-- Preferences -->
-    <string name="pref_ssh_title">匯入 SSH 私鑰</string>
+    <string name="pref_import_ssh_key_title">匯入 SSH 私鑰</string>
     <string name="pref_ssh_keygen_title">生成 SSH 金鑰</string>
     <string name="pref_ssh_see_key_title">顯示生成的 SSH 公鑰</string>
     <string name="pref_git_delete_repo">刪除 Repo</string>

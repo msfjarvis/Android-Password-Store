@@ -42,7 +42,7 @@
     <!-- DECRYPT Layout -->
     <string name="action_search">検索</string>
     <!-- Preferences -->
-    <string name="pref_ssh_title">SSH 鍵のインポート</string>
+    <string name="pref_import_ssh_key_title">SSH 鍵のインポート</string>
     <string name="pref_ssh_keygen_title">SSH 鍵ペアを生成</string>
     <string name="pref_ssh_see_key_title">生成した公開 SSH 鍵を表示</string>
     <string name="pref_git_delete_repo">リポジトリを削除</string>
