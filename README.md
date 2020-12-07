@@ -12,8 +12,6 @@ You can install the application from:
 * [Play Store](https://play.google.com/store/apps/details?id=dev.msfjarvis.aps)
 * [Snapshot builds](https://dl.msfjarvis.dev/APS/)
 
-Pull requests are more than welcome (see [TODO](https://github.com/android-password-store/Android-Password-Store/projects/1#column-228844)).
-
 <a href="https://play.google.com/store/apps/details?id=dev.msfjarvis.aps">
   <img src="https://play.google.com/intl/en_us/badges/static/images/badges/en_badge_web_generic.png" 
        alt="Get it on Google Play"
