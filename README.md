@@ -4,8 +4,6 @@
 [![Backers on Open Collective](https://opencollective.com/Android-Password-Store/backers/badge.svg)](#backers) [![Sponsors on Open Collective](https://opencollective.com/Android-Password-Store/sponsors/badge.svg)](#sponsors)
 [![Join the chat at https://gitter.im/android-password-store/public](https://badges.gitter.im/android-password-store/public.svg)](https://gitter.im/android-password-store/public?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This application tries to be 100% compatible with [pass](http://www.passwordstore.org/)
-
 You can install the application from:
 
 * [F-Droid](https://f-droid.org/packages/dev.msfjarvis.aps/)
