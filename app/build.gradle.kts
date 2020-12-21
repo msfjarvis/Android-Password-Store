@@ -8,6 +8,11 @@ plugins {
     id("com.android.application")
     kotlin("android")
     `aps-plugin`
+    `crowdin-plugin`
+}
+
+configure<CrowdinExtension> {
+    projectName.set("android-password-store")
 }
 
 android {
