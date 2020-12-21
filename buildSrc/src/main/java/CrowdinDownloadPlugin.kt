@@ -5,7 +5,6 @@
 
 import de.undercouch.gradle.tasks.download.Download
 import java.io.File
-import org.gradle.api.GradleException
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.Copy
@@ -19,14 +18,9 @@ class CrowdinDownloadPlugin : Plugin<Project> {
 
     override fun apply(project: Project) {
         val extension = project.extensions.create<CrowdinExtension>("crowdin")
-        val projectNameProp = extension.projectName.forUseAtConfigurationTime()
-        if (!projectNameProp.isPresent) {
-            throw GradleException("""
-                Applying `crowdin-plugin` requires a projectName to be configured via the "crowdin" extension.
-            """.trimIndent())
-        }
+        val projectName = extension.projectName
         project.tasks.register<Download>("downloadCrowdin") {
-            src("https://crowdin.com/backend/download/project/${projectNameProp.get()}.zip")
+            src("https://crowdin.com/backend/download/project/${projectName}.zip")
             dest("build/translations.zip")
             overwrite(true)
         }
@@ -46,7 +40,7 @@ class CrowdinDownloadPlugin : Plugin<Project> {
 
         project.tasks.register<Copy>("crowdin") {
             setMustRunAfter(setOf("extractCrowdin"))
-            from("build/translations/${projectNameProp.get()}/develop/${project.name}/src/main/res")
+            from("build/translations/${projectName}/develop/${project.name}/src/main/res")
             into("src/main/res")
             doLast {
                 File("build/translations").deleteRecursively()

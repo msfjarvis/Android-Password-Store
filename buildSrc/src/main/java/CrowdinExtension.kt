@@ -3,14 +3,10 @@
  * SPDX-License-Identifier: GPL-3.0-only
  */
 
-import org.gradle.api.model.ObjectFactory
-import org.gradle.api.provider.Property
-import org.gradle.kotlin.dsl.property
-
-open class CrowdinExtension(objects: ObjectFactory) {
+open class CrowdinExtension {
 
     /**
      * Configure the project name on Crowdin
      */
-    open var projectName: Property<String> = objects.property()
+    open var projectName = ""
 }

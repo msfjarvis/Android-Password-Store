@@ -11,9 +11,7 @@ plugins {
     `crowdin-plugin`
 }
 
-configure<CrowdinExtension> {
-    projectName.set("android-password-store")
-}
+the<CrowdinExtension>().projectName = "android-password-store"
 
 android {
     if (isSnapshot()) {
