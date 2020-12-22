@@ -34,6 +34,7 @@ jobs:
       with:
         ref: refs/pull/${{ github.event.pull_request.number }}/merge
 
+    - run: git push origin HEAD:develop
     - name: Copy CI gradle.properties
       if: ${{ steps.service-changed.outputs.result == 'true' }}
       run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
