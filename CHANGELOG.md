@@ -4,6 +4,8 @@ All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
 
+## [v1.14.0] - 2021-01-17
+
 ### Added
 
 -   On Android 11, Autofill will use the new [inline autofill](https://developer.android.com/guide/topics/text/ime-autofill#configure-provider) UI that integrates Autofill results into your keyboard app.
@@ -408,7 +410,9 @@ All notable changes to this project will be documented in this file.
 
 -   Fix elements overlapping.
 
-[Unreleased]: https://github.com/android-password-store/Android-Password-Store/compare/1.13.1...HEAD
+[Unreleased]: https://github.com/msfjarvis/Android-Password-Store/compare/v1.14.0...HEAD
+
+[v1.14.0]: https://github.com/msfjarvis/Android-Password-Store/compare/1.13.1...v1.14.0
 
 [1.13.1]: https://github.com/android-password-store/Android-Password-Store/compare/1.13.0...1.13.1
 
