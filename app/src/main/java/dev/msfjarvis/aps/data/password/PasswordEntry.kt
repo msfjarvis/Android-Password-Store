@@ -4,6 +4,7 @@
  */
 package dev.msfjarvis.aps.data.password
 
+import androidx.annotation.VisibleForTesting
 import com.github.michaelbull.result.get
 import dev.msfjarvis.aps.util.totp.Otp
 import dev.msfjarvis.aps.util.totp.TotpFinder
@@ -21,9 +22,12 @@ class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTot
     val extraContentPairs: List<Pair<String, String>>
     val password: String
     val username: String?
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val digits: String
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val totpSecret: String?
     val totpPeriod: Long
+    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     val totpAlgorithm: String
     var extraContent: String
         private set
@@ -114,6 +118,7 @@ class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTot
 
     companion object {
 
+        @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
         val USERNAME_FIELDS = arrayOf(
             "login:",
             "username:",
@@ -126,6 +131,7 @@ class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTot
             "identity:"
         )
 
+        @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
         val PASSWORD_FIELDS = arrayOf(
             "password:",
             "secret:",
