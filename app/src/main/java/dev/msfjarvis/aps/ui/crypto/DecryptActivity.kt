@@ -194,15 +194,15 @@ class DecryptActivity : BasePgpActivity(), OpenPgpServiceConnection.OnBound {
                                 }
 
                                 if (entry.hasExtraContent()) {
-                                    if (entry.extraContentWithoutAuthData.isNotEmpty()) {
+                                    if (entry.extraContentPairs.isNotEmpty()) {
                                         extraContentContainer.visibility = View.VISIBLE
                                         extraContent.typeface = monoTypeface
-                                        extraContent.setText(entry.extraContentWithoutAuthData)
+                                        extraContent.setText("${entry.extraContentPairs}")
                                         if (!showExtraContent) {
                                             extraContent.transformationMethod = PasswordTransformationMethod.getInstance()
                                         }
-                                        extraContentContainer.setOnClickListener { copyTextToClipboard(entry.extraContentWithoutAuthData) }
-                                        extraContent.setOnClickListener { copyTextToClipboard(entry.extraContentWithoutAuthData) }
+                                        extraContentContainer.setOnClickListener { copyTextToClipboard("${entry.extraContentPairs}") }
+                                        extraContent.setOnClickListener { copyTextToClipboard("${entry.extraContentPairs}") }
                                     }
 
                                     if (entry.hasUsername()) {

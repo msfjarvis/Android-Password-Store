@@ -18,6 +18,7 @@ import java.util.Date
  */
 class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTotpFinder()) {
 
+    val extraContentPairs: List<Pair<String, String>>
     val password: String
     val username: String?
     val digits: String
@@ -39,6 +40,7 @@ class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTot
         totpSecret = findTotpSecret(content)
         totpPeriod = findTotpPeriod(content)
         totpAlgorithm = findTotpAlgorithm(content)
+        extraContentPairs = findExtraContentPairs()
     }
 
     fun hasExtraContent(): Boolean {
@@ -59,32 +61,17 @@ class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTot
         return Otp.calculateCode(totpSecret, Date().time / (1000 * totpPeriod), totpAlgorithm, digits).get()
     }
 
-    val extraContentWithoutAuthData by lazy(LazyThreadSafetyMode.NONE) {
-        var foundUsername = false
-        extraContent.splitToSequence("\n").filter { line ->
-            return@filter when {
-                USERNAME_FIELDS.any { prefix -> line.startsWith(prefix, ignoreCase = true) } && !foundUsername -> {
-                    foundUsername = true
-                    false
-                }
-                line.startsWith("otpauth://", ignoreCase = true) ||
-                    line.startsWith("totp:", ignoreCase = true) -> {
-                    false
-                }
-                else -> {
-                    true
-                }
-            }
-        }.joinToString(separator = "\n")
-    }
-
-    val extraContentPairs by lazy(LazyThreadSafetyMode.NONE) {
-        extraContentWithoutAuthData
+    private fun findExtraContentPairs(): List<Pair<String, String>> {
+        return extraContent
             .lineSequence()
+            .filter { line ->
+                !line.startsWith("otpauth://", ignoreCase = true) &&
+                    !line.startsWith("totp:", ignoreCase = true)
+            }
             .map { line -> line.split(':') }
             .filter { items -> items.size == 2 }
             .map { list -> list[0].trimEnd() to list[1].trimStart() }
-            .toMap()
+            .toList()
     }
 
     private fun findUsername(): String? {
