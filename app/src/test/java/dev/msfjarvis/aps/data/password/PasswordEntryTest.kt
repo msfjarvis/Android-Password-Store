@@ -19,6 +19,13 @@ class PasswordEntryTest {
 
     private fun makeEntry(content: String) = PasswordEntry(content, testFinder)
 
+    @Test
+    fun `splits a password into individual pairs of extra content`() {
+        val entry = makeEntry("password\nkey1:value1\nkey2 : value2")
+
+        assertEquals(listOf("key1" to "value1", "key2" to "value2"), entry.extraContentPairs)
+    }
+
     @Test fun testGetPassword() {
         assertEquals("fooooo", makeEntry("fooooo\nbla\n").password)
         assertEquals("fooooo", makeEntry("fooooo\nbla").password)

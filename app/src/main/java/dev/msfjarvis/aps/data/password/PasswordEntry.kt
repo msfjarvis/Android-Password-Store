@@ -78,6 +78,15 @@ class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTot
         }.joinToString(separator = "\n")
     }
 
+    val extraContentPairs by lazy(LazyThreadSafetyMode.NONE) {
+        extraContentWithoutAuthData
+            .lineSequence()
+            .map { line -> line.split(':') }
+            .filter { items -> items.size == 2 }
+            .map { list -> list[0].trimEnd() to list[1].trimStart() }
+            .toMap()
+    }
+
     private fun findUsername(): String? {
         extraContent.splitToSequence("\n").forEach { line ->
             for (prefix in USERNAME_FIELDS) {
