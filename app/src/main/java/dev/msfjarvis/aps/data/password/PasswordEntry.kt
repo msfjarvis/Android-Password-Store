@@ -66,13 +66,18 @@ class PasswordEntry(content: String, private val totpFinder: TotpFinder = UriTot
     private fun findExtraContentPairs(): List<Pair<String, String>> {
         return extraContent
             .lineSequence()
+            // Skip TOTP lines
             .filter { line ->
                 !line.startsWith("otpauth://", ignoreCase = true) &&
                     !line.startsWith("totp:", ignoreCase = true)
             }
+            // Split on the ':' separator
             .map { line -> line.split(':') }
-            .filter { items -> items.size == 2 }
-            .map { list -> list[0].trimEnd() to list[1].trimStart() }
+            // Since the actual values can also contain colons, we join them back and trim any
+            // initial spaces in them, and trailing spaces in the keys.
+            .map { list -> list[0].trimEnd() to list.drop(1).joinToString().trimStart() }
+            // Skip the username value since we're going to be showing it separately
+            .filter { pair -> pair.second != username }
             .toList()
     }
 
