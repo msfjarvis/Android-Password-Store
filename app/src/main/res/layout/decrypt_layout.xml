@@ -128,24 +128,17 @@
             tools:text="totally_real_user@example.com" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/extra_content_container"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/extra_content_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:hint="@string/extra_content"
+        android:layout_marginTop="8dp"
+        android:orientation="vertical"
         android:visibility="gone"
-        app:endIconMode="password_toggle"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintTop_toBottomOf="@id/username_text_container"
-        tools:visibility="visible">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/extra_content"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:editable="false"
-            android:textIsSelectable="true"
-            tools:text="lots of extra content that will surely fill this \n up well" />
-    </com.google.android.material.textfield.TextInputLayout>
+        tools:itemCount="3"
+        tools:listitem="@layout/extra_content_item"
+        tools:visibility="visible" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

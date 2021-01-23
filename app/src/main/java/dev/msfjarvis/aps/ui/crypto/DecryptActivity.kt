@@ -14,6 +14,7 @@ import android.view.MenuItem
 import android.view.View
 import androidx.activity.result.IntentSenderRequest
 import androidx.activity.result.contract.ActivityResultContracts.StartIntentSenderForResult
+import androidx.core.view.isVisible
 import androidx.lifecycle.lifecycleScope
 import com.github.ajalt.timberkt.e
 import com.github.michaelbull.result.onFailure
@@ -21,6 +22,7 @@ import com.github.michaelbull.result.runCatching
 import dev.msfjarvis.aps.R
 import dev.msfjarvis.aps.data.password.PasswordEntry
 import dev.msfjarvis.aps.databinding.DecryptLayoutBinding
+import dev.msfjarvis.aps.ui.adapters.ExtraContentAdapter
 import dev.msfjarvis.aps.util.extensions.viewBinding
 import dev.msfjarvis.aps.util.settings.PreferenceKeys
 import java.io.ByteArrayOutputStream
@@ -194,15 +196,11 @@ class DecryptActivity : BasePgpActivity(), OpenPgpServiceConnection.OnBound {
                                 }
 
                                 if (entry.hasExtraContent()) {
-                                    if (entry.extraContentPairs.isNotEmpty()) {
-                                        extraContentContainer.visibility = View.VISIBLE
-                                        extraContent.typeface = monoTypeface
-                                        extraContent.setText("${entry.extraContentPairs}")
-                                        if (!showExtraContent) {
-                                            extraContent.transformationMethod = PasswordTransformationMethod.getInstance()
-                                        }
-                                        extraContentContainer.setOnClickListener { copyTextToClipboard("${entry.extraContentPairs}") }
-                                        extraContent.setOnClickListener { copyTextToClipboard("${entry.extraContentPairs}") }
+                                    if (entry.extraContentPairs.isNotEmpty() && showExtraContent) {
+                                        binding.extraContentList.isVisible = true
+                                        binding.extraContentList.adapter = ExtraContentAdapter(entry.extraContentPairs)
+                                    } else {
+                                        binding.extraContentList.isVisible = false
                                     }
 
                                     if (entry.hasUsername()) {
