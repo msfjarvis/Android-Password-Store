@@ -15,7 +15,7 @@
 #-keepclassmembers class fqcn.of.javascript.interface.for.webview {
 #   public *;
 #}
--keepattributes SourceFile,LineNumberTable
+-keepattributes SourceFile,LineNumberTable,InnerClasses,EnclosingMethod
 -dontobfuscate
 
 -keep class com.jcraft.jsch.**
