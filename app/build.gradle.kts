@@ -133,6 +133,8 @@ dependencies {
   debugImplementation(libs.thirdparty.leakcanary)
   add("nonFreeImplementation", libs.thirdparty.nonfree.googlePlayAuthApiPhone)
 
+  implementation(libs.thirdparty.simplestorage)
+
   androidTestImplementation(libs.bundles.testDependencies)
   androidTestImplementation(libs.bundles.androidTestDependencies)
   testImplementation(libs.testing.robolectric)
