@@ -20,6 +20,9 @@ internal fun Project.configureKapt() {
         // Enables per-module validation for faster error detection
         // https://github.com/google/dagger/commit/325b516ac6a53d3fc973d247b5231fafda9870a2
         option("-Adagger.moduleBindingValidation=ERROR")
+        // This option is normally set automatically via the Hilt Gradle plugin, but we
+        // set it manually to workaround a bug in the Kotlin 1.5.20
+        option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
       }
     }
   }
